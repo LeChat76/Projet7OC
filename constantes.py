@@ -5,6 +5,7 @@ DATA_PATH = os.path.join(os.path.dirname(__file__), "datas")
 ACTIONS_COSTS_FILE = DATA_PATH + "\\actions_costs.txt"
 ACTIONS_RETURNS_FILE = DATA_PATH + ("\\actions_returns.txt")
 NB_ACTIONS = 20
+COMBINATIONS_ACTIONS_LIST = []
 
 ### creation of list from ACTIONS_COSTS_FILE ###
 ACTIONS_COSTS_LIST = []

@@ -1,6 +1,6 @@
-from constantes import ACTIONS_COSTS_LIST, NB_ACTIONS
+from constantes import ACTIONS_COSTS_LIST, NB_ACTIONS, COMBINATIONS_ACTIONS_LIST
 
-def GetActionsCost(bin_selection=""):
+def GetActionsCost(bin_selection):
   ''' return actions cost from booleen list '''
   combination_costs = 0
   for i,bin in enumerate(bin_selection):
@@ -10,9 +10,17 @@ def GetActionsCost(bin_selection=""):
           return "combination > 500"
   return combination_costs
 
-def GetActionsReturn(bin_selection=""):
+def GetActionsReturn(bin_selection):
   ''' return actions return from booleen list '''
   pass
+
+def ReturnCombination(bin_selection):
+  combination_list = []
+  for i,bin in enumerate(bin_selection):
+    if bin == "1":
+      combination_list.append(ACTIONS_COSTS_LIST[i])
+  COMBINATIONS_ACTIONS_LIST.append(combination_list)
+
 
 def DecToBin(dec):
   binary = bin(dec)
