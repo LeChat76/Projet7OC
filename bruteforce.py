@@ -6,6 +6,7 @@ import datetime
 def Bruteforce():
     ''' main script to analyse all combinations '''
     bestGain = 0
+    actions = ""
     start = datetime.datetime.now()
     for i in range(1, 2 ** 20):
       binary_index = DecToBin(i)
@@ -19,9 +20,10 @@ def Bruteforce():
             binary_index_R = binary_index
         # if i == 10:
         #   break
-    
+    for action in COMBINATIONS_ACTIONS_LIST:
+      actions += action + ", "
     print("Choix des actions à acheter pour un meilleur rendement : \n" +
-          str(COMBINATIONS_ACTIONS_LIST))
+          str(actions[:-2]) + ".")
     print("Gain total théorique avec cette combinaison : " + str(bestGain))
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
     print("(i = " + str(i) + " / binary_index = " + str(binary_index_R) + ")")
