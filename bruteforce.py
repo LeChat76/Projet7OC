@@ -16,9 +16,12 @@ def Bruteforce():
             bestGain = gain
             # create list with combination of actions to buy
             ReturnCombination(str(binary_index))
-        # if i == 100000:
+            binary_index_R = binary_index
+        # if i == 10:
         #   break
+    
     print("Choix des actions à acheter pour un meilleur rendement : \n" +
           str(COMBINATIONS_ACTIONS_LIST))
     print("Gain total théorique avec cette combinaison : " + str(bestGain))
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
+    print("(i = " + str(i) + " / binary_index = " + str(binary_index_R) + ")")

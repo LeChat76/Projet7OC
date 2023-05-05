@@ -16,8 +16,7 @@ def GetActionsReturn(bin_selection):
   combination_return = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      gain = int(ACTIONS_COSTS_LIST[i]) + ((int(ACTIONS_COSTS_LIST[i]) *
-                                            int(ACTIONS_RETURNS_LIST[i])) / 100)
+      gain = ((int(ACTIONS_COSTS_LIST[i]) * int(ACTIONS_RETURNS_LIST[i])) / 100)
       combination_return = combination_return + gain
   return round(combination_return, 2)
 
