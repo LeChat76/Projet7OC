@@ -1,4 +1,4 @@
-from constantes import ACTIONS_RETURNS_LIST, ACTIONS_COSTS_LIST, NB_ACTIONS
+from constantes import ACTIONS_PROFITS_LIST, ACTIONS_COSTS_LIST, NB_ACTIONS
 from constantes import COMBINATIONS_ACTIONS_LIST, ACTIONS_NAMES_LIST, NB_ONE_MAX
 
 def GetActionsCost(bin_selection):
@@ -10,15 +10,15 @@ def GetActionsCost(bin_selection):
       combination_cost = combination_cost + int(ACTIONS_COSTS_LIST[i])
   return combination_cost
 
-def GetActionsReturn(bin_selection):
+def GetActionsProfit(bin_selection):
   ''' return list of actions's gain from binary list '''
   ''' return INTEGER LIMITED TO 2 DECIMALS '''
-  combination_return = 0
+  combination_profit = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      gain = ((int(ACTIONS_COSTS_LIST[i]) * int(ACTIONS_RETURNS_LIST[i])) / 100)
-      combination_return = combination_return + gain
-  return round(combination_return, 2)
+      gain = ((int(ACTIONS_COSTS_LIST[i]) * int(ACTIONS_PROFITS_LIST[i])) / 100)
+      combination_profit = combination_profit + gain
+  return round(combination_profit, 2)
 
 def ReturnCombination(bin_selection):
   ''' create list of combination from binary list '''

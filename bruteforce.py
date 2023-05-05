@@ -1,5 +1,5 @@
 from functions import DecToBin, GetActionsCost, ReturnCombination, TestIfInfTo16
-from functions import GetActionsReturn
+from functions import GetActionsProfit
 from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
 import datetime
 
@@ -12,7 +12,7 @@ def Bruteforce():
       binary_index = DecToBin(i)
       if TestIfInfTo16(binary_index):
         if GetActionsCost(binary_index) <= MAX_INVEST:
-          gain = GetActionsReturn(binary_index)
+          gain = GetActionsProfit(binary_index)
           if gain > bestGain:
             bestGain = gain
             # create list with combination of actions to buy
@@ -24,6 +24,8 @@ def Bruteforce():
       actions += action + ", "
     print("Choix des actions à acheter pour un meilleur rendement : \n" +
           str(actions[:-2]) + ".")
-    print("Gain total théorique avec cette combinaison : " + str(bestGain))
-    print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
+    print("Gain total théorique avec cette combinaison : " + str(bestGain) +
+         "€.")
+    print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10] +
+         ".")
     print("(i = " + str(i) + " / binary_index = " + str(binary_index_R) + ")")
