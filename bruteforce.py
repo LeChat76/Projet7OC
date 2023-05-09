@@ -25,7 +25,7 @@ def Bruteforce():
       actions += action + ", "
     print("Choix des actions à acheter pour un meilleur rendement : \n" +
           str(actions[:-2]) + ".")
-    print("Cout des achats : " + str(actionsCost) + ".")
+    print("Cout des achats : " + str(actionsCost) + "€.")
     print("Gain avec cette combinaison : " + str(bestGain) +
          "€.")
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
