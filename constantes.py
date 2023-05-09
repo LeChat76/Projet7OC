@@ -20,7 +20,7 @@ for line in lines:
   line_list = line.split(",")
   ACTIONS_NAMES_LIST.append(line_list[0])
   ACTIONS_COSTS_LIST.append(line_list[1])
-  ACTIONS_PROFITS_LIST.append(line_list[2])
+  ACTIONS_PROFITS_LIST.append(line_list[2].rstrip('\n'))
 # delete titles
 ACTIONS_NAMES_LIST.pop(0)
 ACTIONS_COSTS_LIST.pop(0)
