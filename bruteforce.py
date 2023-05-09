@@ -11,12 +11,11 @@ def Bruteforce():
     for i in range(1, 2 ** 20):
       binary_index = DecToBin(i)
       if TestIfInfTo16(binary_index):
-        
         if GetActionsCost(binary_index) <= MAX_INVEST:
           gain = GetActionsProfit(binary_index)
           if gain > bestGain:
             bestGain = gain
-            ActionsCost = GetActionsCost(binary_index)
+            actionsCost = GetActionsCost(binary_index)
             # create list with combination of actions to buy
             ReturnCombination(str(binary_index))
             binary_index_R = binary_index
@@ -26,7 +25,7 @@ def Bruteforce():
       actions += action + ", "
     print("Choix des actions à acheter pour un meilleur rendement : \n" +
           str(actions[:-2]) + ".")
-    print("Cout total : " + str(ActionsCost) + "€.")
+    print("Cout des achats : " + str(actionsCost) + ".")
     print("Gain avec cette combinaison : " + str(bestGain) +
          "€.")
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
