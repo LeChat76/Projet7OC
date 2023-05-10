@@ -1,6 +1,5 @@
 from constantes import COMBINATIONS_ACTIONS_LIST, NB_BIN1_MAX, NB_ACTIONS
-# from controllers.optimized import porteFolio
-import os, platform
+import os, platform, sys
 
 def GetActionsCost(bin_selection, actionsCostsList):
   ''' return actions's costs from binary list '''
@@ -55,23 +54,13 @@ def Clean():
     elif platform.system() == "Linux":
         os.system("clear")
 
-def GetActionsValues(datasetFile):
-  ''' return all informations about actions '''
-  ''' output : 3 lists '''
-  data_path = os.path.join(os.path.abspath(__file__), datasetFile)
-  actionsNamesList = []
-  actionsCostsList = []
-  actionsProfitsList = []
-  dataset = open(data_path, "r")
-  lines = dataset.readlines()
-  dataset.close()
-  for line in lines:
-    line_list = line.split(",")
-    actionsNamesList.append(line_list[0])
-    actionsCostsList.append(line_list[1])
-    actionsProfitsList.append(line_list[2].rstrip('\n'))
-  # delete titles
-  actionsNamesList.pop(0)
-  actionsCostsList.pop(0)
-  actionsProfitsList.pop(0)
-  return(actionsNamesList, actionsCostsList, actionsProfitsList)
+def testArgv(argv, scriptName):
+  if len(sys.argv) == 1 or len(sys.argv) >2 :
+    print("Mauvaise syntaxe.\nExemple (depuis le dossier controllers) : python .\\" + scriptName + ".py ..\datas\dataset.csv ")
+    sys.exit()
+  else:
+    try:
+      with open(sys.argv[1]): pass
+    except IOError:
+      print("Le fichier semble ne pas exister, merci de vérifier.")
+      sys.exit()
