@@ -4,3 +4,9 @@
 
 # Projet7OC
 Algorithms for calculating bank returns
+
+Bruteforce script:
+ * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
+
+Optimized script:
+ * from controllers's folder : python.exe .\optimized.py ..\datas\dataset.csv
