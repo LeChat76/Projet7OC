@@ -1,5 +1,6 @@
 from constantes import ACTIONS_PROFITS_LIST, ACTIONS_COSTS_LIST, NB_ACTIONS
 from constantes import COMBINATIONS_ACTIONS_LIST, ACTIONS_NAMES_LIST, NB_BIN1_MAX
+import os, platform
 
 def GetActionsCost(bin_selection):
   ''' return actions's costs from binary list '''
@@ -47,3 +48,9 @@ def TestIfInfTo16(bin_selection):
     return False
   else:
     return True
+
+def Clean():
+    if platform.system() == "Windows":
+        os.system("cls")
+    elif platform.system() == "Linux":
+        os.system("clear")

@@ -1,5 +1,5 @@
-from functionsBruteforce import DecToBin, GetActionsCost, ReturnCombination, TestIfInfTo16
-from functionsBruteforce import GetActionsProfit
+from functions import DecToBin, GetActionsCost, ReturnCombination, TestIfInfTo16
+from functions import GetActionsProfit
 from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
 import datetime
 
