@@ -1,9 +1,9 @@
 import datetime
 import sys
 sys.path.append("..")
-from functions import DecToBin, GetActionsCost, ReturnCombination, TestIfInfToBinMax, GetActionsProfit, testArgv
+from functions import DecToBin, GetActionsCost, ReturnCombination, TestIfInfToBinMax, GetActionsProfit
 from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
-from models.dataset import GetActionsValues
+from models.dataset import GetActionsValues, testArgv
 from views.reports import bruteforceReport
 
 ''' main script to analyse all combinations '''

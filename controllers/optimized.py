@@ -1,8 +1,7 @@
 import sys, os
 sys.path.append("..")
-from functions import testArgv
 from constantes import MAX_INVEST
-from models.dataset import GetActionsValues
+from models.dataset import GetActionsValues, testArgv
 from views.reports import optimizedReport
 
 
