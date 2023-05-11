@@ -10,3 +10,4 @@ Bruteforce script:
 
 Optimized script:
  * from controllers's folder : python.exe .\optimized.py ..\datas\dataset.csv
+ * from controllers's folder : python.exe .\optimized3.py ..\datas\dataset.csv
