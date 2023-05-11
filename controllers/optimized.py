@@ -1,6 +1,7 @@
 import sys, os
 sys.path.append("..")
 from constantes import MAX_INVEST
+from functions import Clean
 from models.dataset import GetActionsValues, testArgv
 from views.reports import optimizedReport
 
@@ -12,8 +13,8 @@ class porteFolio:
         self.name = name
         self.cost = int(cost)
         self.profit = int(profit)
-        # self.ratio = (self.profit / self.cost)
-        self.ratio = (self.cost * self.profit) / self.cost
+        self.ratio = int(profit) / 100
+        # self.ratio = (self.cost * self.profit) / self.cost
         # self.ratio = ((self.cost * (self.profit/100) + self.cost) / 130.06 ) * 100
         # self.ratio = self.cost / 822 * 100
         # self.ratio = (self.cost + (self.cost * self.profit / 100)) * 100
@@ -60,7 +61,7 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
     # print(actionsProfitSorted[:-2])
     # print(actionsRatioSorted[:-2])
     
-    print("*" * 150)
+    # print("*" * 150)
 
     finalProfit = 0
     maxInvest = MAX_INVEST
@@ -70,14 +71,13 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
         cost = int(action.cost)
         profit = int(action.profit)
         if maxInvest - cost >= 0:
-            print(maxInvest)
             maxInvest -= cost 
             finalProfit += cost * profit / 100
             actionsNames += action.name + ", "
 
     actionsNames = actionsNames[:-2]
     return actionsNames, finalProfit, MAX_INVEST - maxInvest
-
+Clean()
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])
 actionsValues = GetActionsValues(data_path)
 actionsNamesList = actionsValues[0]

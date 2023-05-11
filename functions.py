@@ -7,7 +7,7 @@ def GetActionsCost(bin_selection, actionsCostsList):
   combination_cost = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      combination_cost = combination_cost + int(actionsCostsList[i])
+      combination_cost += int(actionsCostsList[i])
   return combination_cost
 
 def GetActionsProfit(bin_selection, actionsProfitsList, actionsCostsList):

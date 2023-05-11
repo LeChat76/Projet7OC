@@ -7,19 +7,17 @@ def GetActionsValues(datasetFile):
   actionsNamesList = []
   actionsCostsList = []
   actionsProfitsList = []
+  actionsGainsList = []
   dataset = open(datasetFile, "r")
   lines = dataset.readlines()
   dataset.close()
-  for line in lines:
+  for line in lines[1:]:
     line_list = line.split(",")
     actionsNamesList.append(line_list[0])
-    actionsCostsList.append(line_list[1])
-    actionsProfitsList.append(line_list[2].rstrip('\n'))
-  # delete titles
-  actionsNamesList.pop(0)
-  actionsCostsList.pop(0)
-  actionsProfitsList.pop(0)
-  return(actionsNamesList, actionsCostsList, actionsProfitsList)
+    actionsCostsList.append(int(line_list[1]))
+    actionsProfitsList.append(int(line_list[2].rstrip('\n')))
+    actionsGainsList.append(int(line_list[1]) * int(line_list[2].rstrip('\n')) / 100)
+  return(actionsNamesList, actionsCostsList, actionsProfitsList, actionsGainsList)
 
 def testArgv(argv, scriptName):
   if len(sys.argv) == 1 or len(sys.argv) >2 :

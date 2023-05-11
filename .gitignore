@@ -167,3 +167,5 @@ cython_debug/
 
 # temp files
 optimized.bkp
+controllers/optimized2.py
+controllers/optimized4.py
