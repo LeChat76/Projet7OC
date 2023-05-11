@@ -2,7 +2,7 @@ import datetime
 
 def optimizedReport(result):
     print("Actions :", result[0])
-    print("Rendement max : " + str(round(result[1], 2)) + "€.")
+    print("Rendement max : " + str(format(result[1], '.2f') + "€."))
     print("Cout total : " + str(result[2]) + "€.")  
 
 def bruteforceReport(actions, actionsCost, bestGain, start, i, binary_index_R):

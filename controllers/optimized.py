@@ -12,7 +12,8 @@ class porteFolio:
         self.name = name
         self.cost = int(cost)
         self.profit = int(profit)
-        self.ratio = round((self.profit / self.cost), 2)
+        # self.ratio = (self.profit / self.cost)
+        self.ratio = (self.cost * self.profit / 100) / self.cost
 
     def __lt__(self, nextObj):
         return self.ratio < nextObj.ratio
@@ -50,11 +51,13 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
     # for action in actionsSorted:
     #     actionsCostSorted += str(action.cost) + " - "
     #     actionsProfitSorted += str(action.profit) + " - "
-    #     actionsRatioSorted += str(action.ratio) + " - "
+    #     actionsRatioSorted += str(format(action.ratio, '.2f')) + " - "
     
     # print(actionsCostSorted[:-2])
     # print(actionsProfitSorted[:-2])
     # print(actionsRatioSorted[:-2])
+    
+    print("*" * 150)
 
     finalProfit = 0
     maxInvest = MAX_INVEST
