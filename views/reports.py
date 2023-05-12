@@ -1,9 +1,10 @@
 import datetime
 
 def optimizedReport(result):
-    print("Actions :", result[0])
+    print("Actions : " + str(result[0][:-2]) + ".")
     print("Rendement max : " + str(format(result[1], '.2f') + "€."))
     print("Cout total : " + str(result[2]) + "€.")  
+    print("Duree de traitement :" ,result[3])
 
 def bruteforceReport(actions, actionsCost, bestGain, start, i, binary_index_R, nbCombinaison):
     print("Choix des actions à acheter pour un meilleur rendement : \n" + str(actions[:-2]) + ".")
