@@ -77,6 +77,7 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
 
     actionsNames = actionsNames[:-2]
     return actionsNames, finalProfit, MAX_INVEST - maxInvest
+
 Clean()
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])
 actionsValues = GetActionsValues(data_path)
