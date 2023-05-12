@@ -26,7 +26,7 @@ for i in range(1, 2 ** 20):
       if gain > bestGain:
         bestGain = gain
         actionsCost = GetActionsCost(binary_index, actionsCostsList)
-        # create list with combination of actions to buy
+        # create list of combination of actions to buy
         ReturnCombination(binary_index, actionsNamesList)
         binary_index_R = binary_index
 for action in COMBINATIONS_ACTIONS_LIST:
