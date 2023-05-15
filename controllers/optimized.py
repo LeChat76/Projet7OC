@@ -1,4 +1,5 @@
-import sys, os
+import sys, os, datetime
+start = datetime.datetime.now()
 sys.path.append("..")
 from constantes import MAX_INVEST
 from functions import Clean
@@ -25,6 +26,7 @@ class porteFolio:
 def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
     ''' return max profit from actions's costs and profits '''
     ''' output : INTEGER '''
+    
     actionsSorted = []
     # actionsRatio = "Ratios : "
     # actionsRatioSorted = "Ratios : "
@@ -76,7 +78,7 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
             actionsNames += action.name + ", "
 
     actionsNames = actionsNames[:-2]
-    return actionsNames, finalProfit, MAX_INVEST - maxInvest
+    return actionsNames, finalProfit, MAX_INVEST - maxInvest, datetime.datetime.now() - start
 
 Clean()
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])

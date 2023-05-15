@@ -1,4 +1,5 @@
 import sys, os, datetime
+start = datetime.datetime.now()
 sys.path.append("..")
 from functions import Clean
 from constantes import MAX_INVEST
@@ -8,7 +9,6 @@ from views.reports import optimizedReport
 testArgv(sys.argv, "optimized")
 
 def portfolio(MAX_INVEST, costs, gains, actions):
-    start = datetime.datetime.now()
     n = len(costs)
     table = [["0" for x in range(MAX_INVEST + 1)] for x in range(n + 1)]
 

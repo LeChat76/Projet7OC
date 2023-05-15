@@ -166,8 +166,4 @@ cython_debug/
 ~*.docx
 
 # temp files
-optimized.bkp
-controllers/optimized2.py
-controllers/optimized4.py
-controllers/optimized5.py
-controllers/optimized6.py
+
