@@ -9,7 +9,7 @@ Algorithms for calculating bank returns
  * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
 
 ## Optimized scripts:
-Knapsack01 avec algorithme glouton : 
+### Knapsack01 avec algorithme glouton : 
  * from controllers's folder : python.exe .\optimized.py ..\datas\dataset.csv
-Knapsack01 avec algorithme dynamique : 
+### Knapsack01 avec algorithme dynamique : 
  * from controllers's folder : python.exe .\optimized2.py ..\datas\dataset.csv
