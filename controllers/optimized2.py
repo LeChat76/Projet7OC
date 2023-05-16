@@ -12,10 +12,10 @@ def portfolio(MAX_INVEST, costs, gains, actions):
     n = len(costs)
     table = [["0" for x in range(MAX_INVEST + 1)] for x in range(n + 1)]
 
-    for i in range(n + 1): # 1
+    for i in range(n + 1):
         cost = costs[i - 1]
         gain = gains[i - 1]
-        for j in range(MAX_INVEST + 1): # 1
+        for j in range(MAX_INVEST + 1):
             if i == 0 or j == 0:
                 table[i][j] = 0
             elif cost <= j:

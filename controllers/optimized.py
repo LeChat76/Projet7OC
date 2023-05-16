@@ -35,11 +35,6 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
     maxInvest = MAX_INVEST
     actionsNames = ""
 
-    # for action in actionsSorted:
-    #     print(str(action.name) + " - " + str(action.profit))
-
-    # print("*" * 150)
-
     for action in actionsSorted:
         cost = int(action.cost)
         profit = int(action.profit)
@@ -47,7 +42,7 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
             maxInvest -= cost 
             finalProfit += cost * profit / 100
             actionsNames += action.name + ", "
-            print(str(action.name) + " - " + str(action.profit))
+            # print(str(action.name) + " - " + str(action.profit))
 
     actionsNames = actionsNames[:-2]
     return actionsNames, finalProfit, MAX_INVEST - maxInvest, datetime.datetime.now() - start

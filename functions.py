@@ -36,18 +36,6 @@ def DecToBin(dec):
   binary = str((int(NB_ACTIONS) - len(binary)) * "0") + str(binary)
   return binary[::-1]
 
-def TestIfInfToBinMax(bin_selection):
-  ''' return True if bin_selection contains less than 16 x "1"
-  and False if more than 16 x "1" '''
-  nbOne = 0
-  for digit in bin_selection:
-    if digit == "1":
-      nbOne += 1
-  if nbOne > NB_BIN1_MAX:
-    return False
-  else:
-    return True
-
 def Clean():
     if platform.system() == "Windows":
         os.system("cls")

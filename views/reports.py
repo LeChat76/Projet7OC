@@ -11,5 +11,5 @@ def bruteforceReport(actions, actionsCost, bestGain, start, i, binary_index_R, n
     print("Cout des achats : " + str(actionsCost) + "€.")
     print("Gain avec cette combinaison : " + str(bestGain) + "€.")
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
-    # print("Nombre de combinaisons testées : " + str(nbCombinaison) + ".")
-    # print("(i = " + str(i) + " / binary_index = " + str(binary_index_R) + ")")
+    print("Nombre de combinaisons testées : " + str(nbCombinaison) + ".")
+    print("(i = " + str(i) + " / binary_index = " + str(binary_index_R) + ")")
