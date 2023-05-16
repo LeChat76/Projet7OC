@@ -1,6 +1,8 @@
 import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
+from memory_profiler import profile
+o2=open('..\datas\memory_profiler_optimized2.log','w+')
 from functions import Clean
 from constantes import MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
@@ -8,6 +10,7 @@ from views.reports import optimizedReport
 
 testArgv(sys.argv, "optimized")
 
+@profile(stream=o2)
 def portfolio(MAX_INVEST, costs, gains, actions):
     n = len(costs)
     table = [["0" for x in range(MAX_INVEST + 1)] for x in range(n + 1)]
@@ -19,8 +22,8 @@ def portfolio(MAX_INVEST, costs, gains, actions):
             if i == 0 or j == 0:
                 table[i][j] = 0
             elif cost <= j:
-                if gain + table[i - 1][j - cost] > table[i - 1][j]:
-                    table[i][j] = gain + table[i - 1][j - cost]
+                if gain + table[i - 1][j - int(cost)] > table[i - 1][j]:
+                    table[i][j] = gain + table[i - 1][j - int(cost)]
                 else:
                     table[i][j] = table[i - 1][j]
             else:
@@ -32,7 +35,7 @@ def portfolio(MAX_INVEST, costs, gains, actions):
     # Retracing the actions selected
     j = MAX_INVEST
     for i in range(n, 0, -1):
-        if table[i][j] != table[i - 1][j]:
+        if table[i][int(j)] != table[i - 1][int(j)]:
             actionsToBuy.append(actions[i - 1])
             actionsCost += costs[i - 1]
             j -= costs[i - 1]

@@ -13,10 +13,13 @@ def GetActionsValues(datasetFile):
   dataset.close()
   for line in lines[1:]:
     line_list = line.split(",")
-    actionsNamesList.append(line_list[0])
-    actionsCostsList.append(int(line_list[1]))
-    actionsProfitsList.append(int(line_list[2].rstrip('\n')))
-    actionsGainsList.append(int(line_list[1]) * int(line_list[2].rstrip('\n')) / 100)
+    actionName = line_list[0]
+    actionCost = int(line_list[1])
+    actionProfit = int(line_list[2])
+    actionsNamesList.append(actionName)
+    actionsCostsList.append(actionCost)
+    actionsProfitsList.append(actionProfit)
+    actionsGainsList.append(actionCost * actionProfit / 100)
   return(actionsNamesList, actionsCostsList, actionsProfitsList, actionsGainsList)
 
 def testArgv(argv, scriptName):

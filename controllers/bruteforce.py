@@ -1,8 +1,7 @@
-import datetime
-import sys
+import datetime, sys
 sys.path.append("..")
 from functions import DecToBin, GetActionsCost, ReturnCombination, GetActionsProfit, Clean
-from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
+from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST, NB_DEC
 from models.dataset import GetActionsValues, testArgv
 from views.reports import bruteforceReport
 
@@ -20,16 +19,15 @@ start = datetime.datetime.now()
 for i in range(1, 2 ** 20):
   binary_index = DecToBin(i)
   if GetActionsCost(binary_index, actionsCostsList) <= MAX_INVEST:
-    nbCombinaison += 1
     gain = GetActionsProfit(binary_index, actionsProfitsList, actionsCostsList)
     if gain > bestGain:
       bestGain = gain
       actionsCost = GetActionsCost(binary_index, actionsCostsList)
       # create list of combination of actions to buy
       ReturnCombination(binary_index, actionsNamesList)
-      binary_index_R = binary_index
 for action in COMBINATIONS_ACTIONS_LIST:
   actions += action + ", "
+# return actions, actionsCost, bestGain, start, i, binary_index_R, nbCombinaison
 
 Clean()
-bruteforceReport(actions, actionsCost, bestGain, start, i, binary_index_R, nbCombinaison)
+bruteforceReport(actions, actionsCost, bestGain, start)

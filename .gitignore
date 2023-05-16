@@ -167,3 +167,5 @@ cython_debug/
 
 # temp files
 
+# memory_profiler
+.datas/memory_profiler*

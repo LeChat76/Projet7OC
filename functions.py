@@ -4,11 +4,11 @@ import os, platform, sys
 def GetActionsCost(bin_selection, actionsCostsList):
   ''' return actions's costs from binary list '''
   ''' output : INTEGER '''
-  combination_cost = 0
+  cost = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      combination_cost += int(actionsCostsList[i])
-  return combination_cost
+      cost += int(actionsCostsList[i])
+  return cost
 
 def GetActionsProfit(bin_selection, actionsProfitsList, actionsCostsList):
   ''' return actions's gain from binary list '''
