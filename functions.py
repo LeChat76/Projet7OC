@@ -41,3 +41,21 @@ def Clean():
         os.system("cls")
     elif platform.system() == "Linux":
         os.system("clear")
+
+def isFloat(actionsList):
+  ''' test if some cost or profit are in float type '''
+  ''' because unable to manage table in that case '''
+  ''' output : BOOLEAN '''
+  for actionCost in actionsList[1]:
+    actionCost = str(actionCost)
+    if "." in actionCost:
+      decAfterPoint = actionCost.split('.')[1]
+      if any(chiffre != '0' for chiffre in decAfterPoint):
+        return True
+  for actionProfit in actionsList[2]:
+    actionProfit = str(actionProfit)
+    if "." in actionProfit:
+      decAfterPoint = actionProfit.split('.')[1]
+      if any(chiffre != '0' for chiffre in decAfterPoint):
+        return True
+  return False
