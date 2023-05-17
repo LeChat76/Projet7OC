@@ -12,6 +12,8 @@ o1=open(OPTIMIZED_LOG_FILE,'w+')
 
 testArgv(sys.argv, "optimized")
 
+actionsContainFloat = False
+
 @profile(stream=o1)
 def getMaxProfit(MAX_INVEST, actionsObjList):
     ''' return max profit from actions's costs and profits '''
@@ -20,7 +22,7 @@ def getMaxProfit(MAX_INVEST, actionsObjList):
     actionsSorted = []
 
     for action in actionsObjList:
-        action = porteFolio(action.name, action.cost, action.profit)
+        action = porteFolio(action.name, action.cost, action.profit, actionsContainFloat)
         actionsSorted.append(action)
     
     actionsSorted.sort(reverse=True)
@@ -48,7 +50,7 @@ actionsValues = GetActionsValues(data_path)
 actionsObjList = []
 
 for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
-    action = porteFolio(name, cost, profit)
+    action = porteFolio(name, cost, profit, actionsContainFloat)
     actionsObjList.append(action)
 
 optimizedReport(getMaxProfit(MAX_INVEST, actionsObjList ))

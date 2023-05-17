@@ -26,7 +26,7 @@ def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
         if percent != prevPercent:
             Clean()
             int(i / (n + 1) * 100)
-            print("Pourcentage : " + str(int(i / (n + 1) * 100)) + "%")
+            print("Computed : " + str(int(i / (n + 1) * 100)) + "%")
             prevPercent = percent
         for j in range(maxInvest + 1):
             if i == 0 or j == 0:
