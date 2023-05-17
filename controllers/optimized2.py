@@ -13,26 +13,31 @@ o2=open(OPTIMIZED2_LOG_FILE,'w+')
 testArgv(sys.argv, "optimized")
 
 # @profile(stream=o2)
-def getMaxProfit(max_Invest, actionsObjList, actionsContainFloat):
+def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
     n = len(actionsObjList)
-    table = [["0" for x in range(max_Invest + 1)] for x in range(n + 1)]
+    table = [["0" for x in range(maxInvest + 1)] for x in range(n + 1)]
 
-    for i in range(len(actionsObjList) + 1):
-        cost = actionsObjList[i - 1].cost
+    prevPercent = 0
+
+    for i in range(n + 1):
+        cost = abs(actionsObjList[i - 1].cost)
         gain = actionsObjList[i - 1].gain
-        for j in range(MAX_INVEST + 1):
+        percent = int(i / (n + 1) * 100)
+        if percent != prevPercent:
+            Clean()
+            int(i / (n + 1) * 100)
+            print("Pourcentage : " + str(int(i / (n + 1) * 100)) + "%")
+            prevPercent = percent
+        for j in range(maxInvest + 1):
             if i == 0 or j == 0:
                 table[i][j] = 0
             elif cost <= j:
-                print(cost)
-                print(gain)
-                exit()
-                if gain + table[i - 1][j - cost] > table[i - 1][j]:
+                if gain + float(table[i - 1][j - cost]) > float(table[i - 1][j]):
                     table[i][j] = gain + table[i - 1][j - cost]
                 else:
-                    table[i][j] = table[i - 1][j]
+                    table[i][j] = float(table[i - 1][j])
             else:
-                table[i][j] = table[i - 1][j]
+                table[i][j] = float(table[i - 1][j])
 
     actionsToBuy = []
     actionsCost = 0
@@ -42,7 +47,7 @@ def getMaxProfit(max_Invest, actionsObjList, actionsContainFloat):
     for i in range(n, 0, -1):
         name = actionsObjList[i - 1].name
         cost = actionsObjList[i - 1].cost
-        if table[i][int(j)] != table[i - 1][int(j)]:
+        if table[i][j] != table[i - 1][j]:
             actionsToBuy.append(name)
             actionsCost += cost
             j -= cost
@@ -64,9 +69,9 @@ maxInvest = MAX_INVEST
 
 for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
     if actionsContainFloat:
-        action = porteFolio(name, cost * 100, profit * 100)
+        action = porteFolio(name, cost * 100, profit * 100, actionsContainFloat)
     else:
-        action = porteFolio(name, cost, profit)
+        action = porteFolio(name, cost, profit, actionsContainFloat)
     actionsObjList.append(action)
 
 if actionsContainFloat:
