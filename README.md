@@ -3,7 +3,20 @@
 </p>
 
 # Projet7OC
-Algorithms for calculating bank returns
+Algorithms for calculating bank returns.
+Using MVC pattern.
+
+## Installation
+```sh
+"git clone https://github.com/LeChat76/Projet7OC.git"
+"cd Projet7OC"
+Create virtual environment :
+* "python -m venv .venv"
+* activate environment :
+    * for Linux "source .venv/bin/activate"
+    * for Windows ".\.venv\Scripts\activate"
+Install all needed libraries by typing : "pip install -r requirements.txt"
+```
 
 ## Bruteforce script:
  * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
