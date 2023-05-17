@@ -2,34 +2,25 @@ import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
 from memory_profiler import profile
-o1=open('..\datas\memory_profiler_optimized.log','w+')
-from constantes import MAX_INVEST
+from constantes import MAX_INVEST, OPTIMIZED_LOG_FILE
 from functions import Clean
 from models.dataset import GetActionsValues, testArgv
+from models.actions import porteFolio
 from views.reports import optimizedReport
 
+o1=open(OPTIMIZED_LOG_FILE,'w+')
 
 testArgv(sys.argv, "optimized")
 
-class porteFolio:
-    def __init__(self, name, cost, profit): 
-        self.name = name
-        self.cost = int(cost)
-        self.profit = int(profit)
-        self.ratio = (self.cost * (self.profit / 100)) + self.profit
-
-    def __lt__(self, nextObj):
-        return self.ratio < nextObj.ratio
-
 @profile(stream=o1)
-def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
+def getMaxProfit(MAX_INVEST, actionsList):
     ''' return max profit from actions's costs and profits '''
     ''' output : INTEGER '''
     
     actionsSorted = []
 
-    for i in range(len(actionsCosts)):
-        action = porteFolio(actionsNames[i], actionsCosts[i], actionsProfits[i])
+    for action in actionsList:
+        action = porteFolio(action.name, action.cost, action.profit)
         actionsSorted.append(action)
     
     actionsSorted.sort(reverse=True)
@@ -52,7 +43,10 @@ def getMaxProfit(actionsNames, actionsCosts, actionsProfits, MAX_INVEST):
 Clean()
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])
 actionsValues = GetActionsValues(data_path)
-actionsNamesList = actionsValues[0]
-actionsCostsList = actionsValues[1]
-actionsProfitsList = actionsValues[2]
-optimizedReport(getMaxProfit(actionsNamesList, actionsCostsList, actionsProfitsList, MAX_INVEST))
+actionsList = []
+
+for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
+    action = porteFolio(name, cost, profit)
+    actionsList.append(action)
+
+optimizedReport(getMaxProfit(MAX_INVEST, actionsList ))

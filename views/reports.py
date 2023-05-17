@@ -1,7 +1,8 @@
 import datetime, sys
 from memory_profiler import profile
+from constantes import BRUTEFORCE_LOG_FILE
 sys.path.append("..")
-bf=open('..\datas\memory_profiler_bruteforce.log','w+')
+bf=open(BRUTEFORCE_LOG_FILE,'w+')
 
 def optimizedReport(result):
     print("Choix des actions à acheter pour un meilleur rendement : \n" + str(result[0]) + ".")

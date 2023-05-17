@@ -41,19 +41,3 @@ def Clean():
         os.system("cls")
     elif platform.system() == "Linux":
         os.system("clear")
-
-def TestIfFloat(dataset):
-  ''' check if dataset contains float '''
-  ''' if yes, to use optimized2 and table, we can not have float so so we must multiply by nDec * 100 '''
-  ''' output : BOOLEAN '''
-  for cost, profit in zip(dataset[1], dataset[2]):
-    cost = str(cost)
-    profit = str(profit)
-    if '.' in cost or '.' in profit:
-      nbDecCost = len(cost) - cost.index('.') - 1
-      if nbDecCost > 1:
-        return True
-      nbDecProfit = len(profit) - profit.index('.') - 1
-      if nbDecProfit > 1:
-        return True
-  return False

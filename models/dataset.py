@@ -7,7 +7,6 @@ def GetActionsValues(datasetFile):
   actionsNamesList = []
   actionsCostsList = []
   actionsProfitsList = []
-  actionsGainsList = []
   dataset = open(datasetFile, "r")
   lines = dataset.readlines()
   dataset.close()
@@ -19,16 +18,31 @@ def GetActionsValues(datasetFile):
     actionsNamesList.append(actionName)
     actionsCostsList.append(actionCost)
     actionsProfitsList.append(actionProfit)
-    actionsGainsList.append(actionCost * actionProfit / 100)
-  return(actionsNamesList, actionsCostsList, actionsProfitsList, actionsGainsList)
+  return(actionsNamesList, actionsCostsList, actionsProfitsList)
 
 def testArgv(argv, scriptName):
-  if len(sys.argv) == 1 or len(sys.argv) >2 :
+  if len(argv) == 1 or len(argv) >2 :
     print("Mauvaise syntaxe.\nExemple (depuis le dossier controllers) : python .\\" + scriptName + ".py ..\datas\dataset.csv ")
     sys.exit()
   else:
     try:
       with open(sys.argv[1]): pass
+    except IOError:
+      print("Le fichier semble ne pas exister, merci de vérifier.")
+      sys.exit()
+
+def testArgvBacktesting(argv):
+  if len(argv) == 1 or len(argv) >3 :
+    print("Mauvaise syntaxe.\nExemple (depuis le dossier controllers) : python .\\backtesting.py ..\datas\dataset.csv ")
+    sys.exit()
+  else:
+    try:
+      with open(sys.argv[1]): pass
+    except IOError:
+      print("Le fichier semble ne pas exister, merci de vérifier.")
+      sys.exit()
+    try:
+      with open(sys.argv[2]): pass
     except IOError:
       print("Le fichier semble ne pas exister, merci de vérifier.")
       sys.exit()

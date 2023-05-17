@@ -16,7 +16,7 @@ actionsNamesList = actionsValues[0]
 actionsCostsList = actionsValues[1]
 actionsProfitsList = actionsValues[2]
 start = datetime.datetime.now()
-for i in range(1, 2 ** 20):
+for i in range(1, 2 ** len(actionsNamesList)):
   binary_index = DecToBin(i)
   if GetActionsCost(binary_index, actionsCostsList) <= MAX_INVEST:
     gain = GetActionsProfit(binary_index, actionsProfitsList, actionsCostsList)
