@@ -1,7 +1,7 @@
 import datetime, sys
 sys.path.append("..")
 from functions import DecToBin, GetActionsCost, ReturnCombination, GetActionsProfit, Clean
-from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST, NB_DEC
+from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
 from views.reports import bruteforceReport
 
