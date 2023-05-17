@@ -14,8 +14,8 @@ def GetActionsValues(datasetFile):
   for line in lines[1:]:
     line_list = line.split(",")
     actionName = line_list[0]
-    actionCost = int(line_list[1])
-    actionProfit = int(line_list[2])
+    actionCost = float(line_list[1])
+    actionProfit = float(line_list[2])
     actionsNamesList.append(actionName)
     actionsCostsList.append(actionCost)
     actionsProfitsList.append(actionProfit)

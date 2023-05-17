@@ -15,3 +15,6 @@ def bruteforceReport(actions, actionsCost, bestGain, start):
     print("Cout des achats : " + str(actionsCost) + "€.")
     print("Gain avec cette combinaison : " + str(bestGain) + "€.")
     print("Duree de traitement : " + str(datetime.datetime.now() - start)[:10])
+
+def displayMsg(message):
+    print(message)

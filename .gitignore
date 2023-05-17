@@ -166,6 +166,9 @@ cython_debug/
 ~*.docx
 
 # temp files
+datas/resultat*
+controllers/optimized3.py
 
 # memory_profiler
-.datas/memory_profiler*
+datas/memory_profiler*
+

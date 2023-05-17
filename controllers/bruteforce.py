@@ -27,7 +27,6 @@ for i in range(1, 2 ** 20):
       ReturnCombination(binary_index, actionsNamesList)
 for action in COMBINATIONS_ACTIONS_LIST:
   actions += action + ", "
-# return actions, actionsCost, bestGain, start, i, binary_index_R, nbCombinaison
 
 Clean()
 bruteforceReport(actions, actionsCost, bestGain, start)

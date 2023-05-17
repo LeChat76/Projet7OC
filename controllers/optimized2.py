@@ -3,12 +3,17 @@ start = datetime.datetime.now()
 sys.path.append("..")
 from memory_profiler import profile
 o2=open('..\datas\memory_profiler_optimized2.log','w+')
-from functions import Clean
+from functions import Clean, TestIfFloat
 from constantes import MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
-from views.reports import optimizedReport
+from views.reports import optimizedReport, displayMsg
 
 testArgv(sys.argv, "optimized")
+actionsValues = GetActionsValues(sys.argv[1])
+if TestIfFloat(actionsValues):
+    Clean()
+    displayMsg("Dataset contains floats, unable to use with tables.")
+    exit()
 
 @profile(stream=o2)
 def portfolio(MAX_INVEST, costs, gains, actions):

@@ -1,5 +1,5 @@
 from constantes import COMBINATIONS_ACTIONS_LIST, NB_BIN1_MAX, NB_ACTIONS
-import os, platform, sys
+import os, platform
 
 def GetActionsCost(bin_selection, actionsCostsList):
   ''' return actions's costs from binary list '''
@@ -7,7 +7,7 @@ def GetActionsCost(bin_selection, actionsCostsList):
   cost = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      cost += int(actionsCostsList[i])
+      cost += float(actionsCostsList[i])
   return cost
 
 def GetActionsProfit(bin_selection, actionsProfitsList, actionsCostsList):
@@ -41,3 +41,19 @@ def Clean():
         os.system("cls")
     elif platform.system() == "Linux":
         os.system("clear")
+
+def TestIfFloat(dataset):
+  ''' check if dataset contains float '''
+  ''' if yes, to use optimized2 and table, we can not have float so so we must multiply by nDec * 100 '''
+  ''' output : BOOLEAN '''
+  for cost, profit in zip(dataset[1], dataset[2]):
+    cost = str(cost)
+    profit = str(profit)
+    if '.' in cost or '.' in profit:
+      nbDecCost = len(cost) - cost.index('.') - 1
+      if nbDecCost > 1:
+        return True
+      nbDecProfit = len(profit) - profit.index('.') - 1
+      if nbDecProfit > 1:
+        return True
+  return False
