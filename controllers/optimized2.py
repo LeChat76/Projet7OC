@@ -14,13 +14,16 @@ testArgv(sys.argv, "optimized")
 
 # @profile(stream=o2)
 def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
+    ''' extract best combination of actions to buy '''
     n = len(actionsObjList)
-    table = [["0" for x in range(maxInvest + 1)] for x in range(n + 1)]
+    table = [[0 for x in range(maxInvest + 1)] for x in range(n + 1)]
 
     prevPercent = 0
 
     for i in range(n + 1):
-        cost = abs(actionsObjList[i - 1].cost)
+        cost = actionsObjList[i - 1].cost
+        if cost <= 0:
+            cost = 0
         gain = actionsObjList[i - 1].gain
         percent = int(i / (n + 1) * 100)
         if percent != prevPercent:
@@ -32,18 +35,21 @@ def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
             if i == 0 or j == 0:
                 table[i][j] = 0
             elif cost <= j:
-                if gain + float(table[i - 1][j - cost]) > float(table[i - 1][j]):
+                if gain + table[i - 1][j - cost] > table[i - 1][j]:
                     table[i][j] = gain + table[i - 1][j - cost]
                 else:
-                    table[i][j] = float(table[i - 1][j])
+                    table[i][j] = table[i - 1][j]
             else:
-                table[i][j] = float(table[i - 1][j])
+                table[i][j] = table[i - 1][j]
 
     actionsToBuy = []
     actionsCost = 0
 
     # Retracing the actions selected
-    j = MAX_INVEST
+    if actionsContainFloat:
+        j = maxInvest
+    else:
+        j = MAX_INVEST
     for i in range(n, 0, -1):
         name = actionsObjList[i - 1].name
         cost = actionsObjList[i - 1].cost
@@ -55,17 +61,22 @@ def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
     actionsVar = ", ".join(actionsToBuy)
 
     if actionsContainFloat:
-        return actionsVar, table[n][MAX_INVEST] / 100, actionsCost / 100, datetime.datetime.now() - start
+        return actionsVar, table[n][maxInvest] / 100, actionsCost / 100, datetime.datetime.now() - start
     else:
-        return actionsVar, table[n][MAX_INVEST], actionsCost, datetime.datetime.now() - start
+        return actionsVar, table[n][maxInvest], actionsCost, datetime.datetime.now() - start
 
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])
 actionsValues = GetActionsValues(data_path)
 
+# return True if action's cost in actionsValues contains at less one Float
 actionsContainFloat = (isFloat(actionsValues))
 
+if actionsContainFloat:
+    maxInvest = MAX_INVEST * 100
+else:
+    maxInvest = MAX_INVEST
+
 actionsObjList = []
-maxInvest = MAX_INVEST
 
 for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
     if actionsContainFloat:
@@ -73,9 +84,6 @@ for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[
     else:
         action = porteFolio(name, cost, profit, actionsContainFloat)
     actionsObjList.append(action)
-
-if actionsContainFloat:
-    maxInvest = MAX_INVEST * 100
 
 Clean()
 

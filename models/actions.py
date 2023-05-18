@@ -4,7 +4,7 @@ class porteFolio:
         self.cost = int(cost)
         self.profit = int(profit)
         if actionsContainFloat:
-            self.gain = self.cost * (self.profit / 10000 )
+            self.gain = self.cost * (self.profit / 10000)
         else:
             self.gain = self.cost * (self.profit / 100 )
         self.ratio = (self.cost * (self.profit / 100)) + self.profit
