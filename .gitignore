@@ -168,6 +168,8 @@ cython_debug/
 # temp files
 datas/resultat*
 controllers/optimized3.py
+controllers/bruteforce.bak
+functions.bak
 
 # memory_profiler
 datas/memory_profiler*
