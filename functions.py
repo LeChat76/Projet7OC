@@ -1,4 +1,4 @@
-from constantes import COMBINATIONS_ACTIONS_LIST, NB_BIN1_MAX, NB_ACTIONS
+from constantes import COMBINATIONS_ACTIONS_LIST, NB_ACTIONS
 import os, platform
 
 def GetActionsCost(bin_selection, actionsCostsList):

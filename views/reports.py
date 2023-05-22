@@ -1,16 +1,13 @@
 import datetime, sys
-from memory_profiler import profile
 from constantes import BRUTEFORCE_LOG_FILE
 sys.path.append("..")
-bf=open(BRUTEFORCE_LOG_FILE,'w+')
 
 def optimizedReport(result):
     print("Choix des actions à acheter pour un meilleur rendement : \n" + str(result[0]) + ".")
-    print("Cout des achats : " + str(result[2]) + "€.")  
+    print("Cout des achats : " + str(format(result[2], '.2f') + "€.")  )
     print("Gain avec cette combinaison : " + str(format(result[1], '.2f') + "€."))
     print("Duree de traitement :" ,result[3])
 
-@profile(stream=bf)
 def bruteforceReport(actions, actionsCost, bestGain, start):
     print("Choix des actions à acheter pour un meilleur rendement : \n" + str(actions[:-2]) + ".")
     print("Cout des achats : " + str(actionsCost) + "€.")
