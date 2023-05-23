@@ -30,19 +30,3 @@ def testArgv(argv, scriptName):
     except IOError:
       print("Le fichier semble ne pas exister, merci de vérifier.")
       sys.exit()
-
-def testArgvBacktesting(argv):
-  if len(argv) == 1 or len(argv) >3 :
-    print("Mauvaise syntaxe.\nExemple (depuis le dossier controllers) : python .\\backtesting.py ..\datas\dataset.csv ")
-    sys.exit()
-  else:
-    try:
-      with open(sys.argv[1]): pass
-    except IOError:
-      print("Le fichier semble ne pas exister, merci de vérifier.")
-      sys.exit()
-    try:
-      with open(sys.argv[2]): pass
-    except IOError:
-      print("Le fichier semble ne pas exister, merci de vérifier.")
-      sys.exit()
