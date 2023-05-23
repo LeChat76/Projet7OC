@@ -7,8 +7,6 @@ from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import optimizedReport
 
-o2=open(OPTIMIZED2_LOG_FILE,'w+')
-
 testArgv(sys.argv, "optimized")
 
 def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
@@ -21,10 +19,12 @@ def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
     for i in range(n + 1):
         cost = actionsObjList[i - 1].cost
 
-        # if cost < 0 (so I guess a mistake), I modify cost by 0
-        if cost < 0:
+        # if cost < 0 (so I guess it's a mistake), I modify cost and gain by 0 to bypass this action
+        if cost <= 0:
             cost = 0
-        gain = actionsObjList[i - 1].gain
+            gain = 0
+        elif cost > 0:
+            gain = actionsObjList[i - 1].gain
         percent = int(i / (n + 1) * 100)
 
         # generate a percent progressbar
