@@ -2,7 +2,7 @@ import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
 from functions import Clean, isFloat
-from constantes import MAX_INVEST, OPTIMIZED2_LOG_FILE
+from constantes import MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import optimizedReport

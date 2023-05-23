@@ -1,7 +1,7 @@
 import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
-from constantes import MAX_INVEST, OPTIMIZED_LOG_FILE
+from constantes import MAX_INVEST
 from functions import Clean
 from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
