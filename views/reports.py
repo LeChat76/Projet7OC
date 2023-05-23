@@ -5,10 +5,10 @@ from functions import getMemoryUsage
 def optimizedReport(result):
     memoryUsed = getMemoryUsage()
     print("Choix des actions à acheter pour un meilleur rendement : \n" + str(result[0]) + ".")
-    print("Cout des achats : " + str(format(result[2], '.2f') + "€.")  )
+    print("Cout des achats : " + str(format(result[2], '.2f') + "€."))
     print("Gain avec cette combinaison : " + str(format(result[1], '.2f') + "€."))
     print("Duree de traitement :" ,result[3])
-    print("Utilisation de la mémoire : " + format(memoryUsed, '.2f') + "Mo.")
+    print("Utilisation de la mémoire : " + format(memoryUsed, '.2f') + "Mo")
 
 
 
