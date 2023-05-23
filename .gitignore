@@ -168,6 +168,7 @@ cython_debug/
 # temp files
 datas/resultat*
 controllers/optimized3.py
+controllers/optimized4.py
 controllers/bruteforce.bak
 functions.bak
 
