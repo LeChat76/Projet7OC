@@ -1,5 +1,5 @@
 from constantes import COMBINATIONS_ACTIONS_LIST, NB_ACTIONS
-import os, platform
+import os, platform, psutil
 
 def GetActionsCost(bin_selection, actionsCostsList):
   ''' return actions's costs from binary list '''
@@ -59,3 +59,9 @@ def isFloat(actionsList):
       if any(chiffre != '0' for chiffre in decAfterPoint):
         return True
   return False
+
+def getMemoryUsage():
+    process = psutil.Process()
+    memoryInfo = process.memory_info()
+    memoryUsageMb = memoryInfo.rss / (1024 * 1024)
+    return memoryUsageMb

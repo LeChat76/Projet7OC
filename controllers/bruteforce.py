@@ -1,5 +1,4 @@
 import datetime, sys
-from memory_profiler import profile
 sys.path.append("..")
 from functions import DecToBin, GetActionsCost, ReturnCombination, GetActionsProfit, Clean
 from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST, BRUTEFORCE_LOG_FILE
@@ -14,7 +13,6 @@ actionsNamesList = actionsValues[0]
 actionsCostsList = actionsValues[1]
 actionsProfitsList = actionsValues[2]
 
-# @profile(stream=bf)
 def getMaxProfit():
   ''' return max profit from dataset '''
 
