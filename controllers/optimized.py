@@ -1,7 +1,6 @@
 import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
-from memory_profiler import profile
 from constantes import MAX_INVEST, OPTIMIZED_LOG_FILE
 from functions import Clean
 from models.dataset import GetActionsValues, testArgv
@@ -14,7 +13,6 @@ testArgv(sys.argv, "optimized")
 
 actionsContainFloat = False
 
-@profile(stream=o1)
 def getMaxProfit(MAX_INVEST, actionsObjList):
     ''' return max profit from actions's costs and profits '''
     actionsSorted = []
