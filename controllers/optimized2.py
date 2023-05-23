@@ -20,11 +20,11 @@ def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
         cost = actionsObjList[i - 1].cost
 
         # if cost < 0 (so I guess it's a mistake), I modify cost and gain by 0 to bypass this action
-        if cost <= 0:
-            cost = 0
-            gain = 0
-        elif cost > 0:
-            gain = actionsObjList[i - 1].gain
+        # if cost <= 0:
+        #     cost = 0
+        #     gain = 0
+        # elif cost > 0:
+        gain = actionsObjList[i - 1].gain
         percent = int(i / (n + 1) * 100)
 
         # generate a percent progressbar

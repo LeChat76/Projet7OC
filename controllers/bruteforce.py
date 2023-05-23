@@ -4,7 +4,6 @@ from functions import DecToBin, GetActionsCost, ReturnCombination, GetActionsPro
 from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST, BRUTEFORCE_LOG_FILE
 from models.dataset import GetActionsValues, testArgv
 from views.reports import bruteforceReport
-bf=open(BRUTEFORCE_LOG_FILE,'w+')
 
 testArgv(sys.argv, "bruteforce")
 

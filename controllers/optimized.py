@@ -7,8 +7,6 @@ from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import optimizedReport
 
-o1=open(OPTIMIZED_LOG_FILE,'w+')
-
 testArgv(sys.argv, "optimized")
 
 actionsContainFloat = False
