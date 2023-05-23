@@ -1,7 +1,6 @@
 import sys, os, datetime
 start = datetime.datetime.now()
 sys.path.append("..")
-from memory_profiler import profile
 from functions import Clean, isFloat
 from constantes import MAX_INVEST, OPTIMIZED2_LOG_FILE
 from models.dataset import GetActionsValues, testArgv
@@ -12,7 +11,6 @@ o2=open(OPTIMIZED2_LOG_FILE,'w+')
 
 testArgv(sys.argv, "optimized")
 
-# @profile(stream=o2)
 def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
     ''' extract best combination of actions to buy '''
     n = len(actionsObjList)
