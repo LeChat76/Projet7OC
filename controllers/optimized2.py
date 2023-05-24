@@ -87,6 +87,9 @@ else:
 actionsObjList = []
 
 for actionName, actionCost, actionProfit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
+    # check if action contains mistakes (cost <= 0)
+    if actionCost <= 0:
+        continue
     if actionsContainFloat:
         action = porteFolio(actionName, actionCost * 100, actionProfit * 100, actionsContainFloat)
     else:

@@ -19,7 +19,7 @@ def getMaxProfit(MAX_INVEST, actionsObjList):
     maxInvest = MAX_INVEST
     actionsNames = ""
 
-    # create list of action ordered by ratio profit + gain
+    # create list of actions ordered by ratio profit + gain
     for action in actionsObjList:
         action = porteFolio(action.name, float(action.cost), action.profit, actionsContainFloat)
         actionsSorted.append(action)
@@ -48,7 +48,9 @@ actionsObjList = []
 
 for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
     action = porteFolio(name, cost, profit, actionsContainFloat)
-    # if action.cost > 0: # remove error in dataset
+    # check if action contains mistakes (cost <= 0)
+    if action.cost <= 0:
+        continue
     actionsObjList.append(action)
 
 
