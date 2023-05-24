@@ -19,17 +19,17 @@ Create virtual environment :
 Install all needed libraries by typing : "pip install -r requirements.txt"
 ```
 
-## Bruteforce script:
+## Step 1 : bruteforce algorithm
 ### Knapsack01 with bruteforce algorithm :
  * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
 
-## Optimized scripts:
+## Step 2 : optimization
 ### Knapsack01 with gluttonous algorithm : 
  * from controllers's folder : python.exe .\optimized.py ..\datas\dataset.csv
 ### Knapsack01 with dynamic algorithm : 
  * from controllers's folder : python.exe .\optimized2.py ..\datas\dataset.csv
 
-## Backtesting:
+## Step 3 : backtesting
 ### Bruteforce is not used because computing time is too long
 ### Knapsack01 with gluttonous algorithm : 
  * from controllers's folder : 
