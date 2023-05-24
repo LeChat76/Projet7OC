@@ -29,7 +29,7 @@ def getMaxProfit():
     if GetActionsCost(binary_index, actionsCostsList) <= MAX_INVEST:
       gain = GetActionsProfit(binary_index, actionsProfitsList, actionsCostsList)
     
-      # test if gain of this combination is better than old better combination's costs
+      # test if gain of this combination is better than old better combination's gain
       if gain > bestGain:
         bestGain = gain
         actionsCost = GetActionsCost(binary_index, actionsCostsList)
