@@ -7,23 +7,21 @@ from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import optimizedReport
 
+# check if file argument exists and if can be accessed
 testArgv(sys.argv, "optimized")
 
 def getMaxProfit(maxInvest, actionsObjList, actionsContainFloat):
     ''' extract best combination of actions to buy '''
+    
+    print("Creating matrix....")
     n = len(actionsObjList)
     table = [[0 for x in range(maxInvest + 1)] for x in range(n + 1)]
-
+    
     prevPercent = 0
 
     for i in range(n + 1):
         cost = actionsObjList[i - 1].cost
 
-        # if cost < 0 (so I guess it's a mistake), I modify cost and gain by 0 to bypass this action
-        # if cost <= 0:
-        #     cost = 0
-        #     gain = 0
-        # elif cost > 0:
         gain = actionsObjList[i - 1].gain
         percent = int(i / (n + 1) * 100)
 
@@ -95,6 +93,10 @@ for actionName, actionCost, actionProfit in zip(actionsValues[0], actionsValues[
         action = porteFolio(actionName, actionCost, actionProfit, actionsContainFloat)
     actionsObjList.append(action)
 
-Clean()
-
-optimizedReport(getMaxProfit(maxInvest, actionsObjList, actionsContainFloat))
+if __name__ == '__main__':
+    Clean()
+    try:
+        # executing script getMaxProfit + reporting
+        optimizedReport(getMaxProfit(maxInvest, actionsObjList, actionsContainFloat))
+    except KeyboardInterrupt:
+        print("\n\nFin du script par l'utilisateur.\n")

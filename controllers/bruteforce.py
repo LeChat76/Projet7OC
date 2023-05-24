@@ -5,6 +5,7 @@ from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
 from views.reports import bruteforceReport
 
+# check if file argument exists and if can be accessed
 testArgv(sys.argv, "bruteforce")
 
 actionsValues = GetActionsValues(sys.argv[1])

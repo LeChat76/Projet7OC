@@ -7,6 +7,7 @@ from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import optimizedReport
 
+# check if file argument exists and if can be accessed
 testArgv(sys.argv, "optimized")
 
 actionsContainFloat = False
@@ -47,11 +48,14 @@ actionsObjList = []
 
 for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[2]):
     action = porteFolio(name, cost, profit, actionsContainFloat)
-    if action.cost > 0: # remove error in dataset
-        actionsObjList.append(action)
+    # if action.cost > 0: # remove error in dataset
+    actionsObjList.append(action)
 
-# executing script
-maxProfit = getMaxProfit(MAX_INVEST, actionsObjList )
 
-# reporting
-optimizedReport(maxProfit)
+if __name__ == '__main__':
+    Clean()
+    try:
+        # executing script getMaxProfit + reporting
+        optimizedReport(getMaxProfit(MAX_INVEST, actionsObjList ))
+    except KeyboardInterrupt:
+        print("\n\nFin du script par l'utilisateur.\n")
