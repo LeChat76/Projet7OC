@@ -5,6 +5,7 @@
 # Projet7OC
 Algorithms for calculating best bank returns.
 Using MVC pattern.
+This project is detailed in the file 'AlgoInvest&Trade.pdf'.
 
 ## Installation
 ```sh
@@ -19,6 +20,7 @@ Install all needed libraries by typing : "pip install -r requirements.txt"
 ```
 
 ## Bruteforce script:
+### Knapsack01 with bruteforce algorithm :
  * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
 
 ## Optimized scripts:
