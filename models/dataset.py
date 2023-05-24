@@ -22,11 +22,11 @@ def GetActionsValues(datasetFile):
 
 def testArgv(argv, scriptName):
   if len(argv) == 1 or len(argv) >2 :
-    print("Mauvaise syntaxe.\nExemple (depuis le dossier controllers) : python .\\" + scriptName + ".py ..\datas\dataset.csv ")
+    print("Mauvaise syntaxe.\nExemple (depuis le dossier 'controllers') : python .\\" + scriptName + ".py ..\datas\dataset.csv ")
     sys.exit()
   else:
     try:
       with open(sys.argv[1]): pass
     except IOError:
-      print("Le fichier semble ne pas exister, merci de vérifier.")
+      print(f"Le fichier '{sys.argv[1]}' semble ne pas exister, merci de vérifier.")
       sys.exit()
