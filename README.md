@@ -3,7 +3,7 @@
 </p>
 
 # Projet7OC
-Algorithms for calculating bank returns.
+Algorithms for calculating best bank returns.
 Using MVC pattern.
 
 ## Installation
@@ -26,3 +26,15 @@ Install all needed libraries by typing : "pip install -r requirements.txt"
  * from controllers's folder : python.exe .\optimized.py ..\datas\dataset.csv
 ### Knapsack01 with dynamic algorithm : 
  * from controllers's folder : python.exe .\optimized2.py ..\datas\dataset.csv
+
+## Backtesting:
+### Bruteforce is not used because computing time is too long
+### Knapsack01 with gluttonous algorithm : 
+ * from controllers's folder : 
+    * python.exe .\optimized.py ..\datas\dataset1_Python+P7.csv
+    * python.exe .\optimized.py ..\datas\dataset2_Python+P7.csv
+### Knapsack01 with dynamic algorithm : 
+ * from controllers's folder : 
+    * python.exe .\optimized2.py ..\datas\dataset1_Python+P7.csv
+    * python.exe .\optimized2.py ..\datas\dataset2_Python+P7.csv
+
