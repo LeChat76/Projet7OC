@@ -1,4 +1,4 @@
-import datetime, sys, psutil
+import datetime, sys
 sys.path.append("..")
 from functions import getMemoryUsage
 
