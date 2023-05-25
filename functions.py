@@ -1,32 +1,32 @@
 from constantes import COMBINATIONS_ACTIONS_LIST, NB_ACTIONS
 import os, platform, psutil
 
-def GetActionsCost(bin_selection, actionsCostsList):
+def GetActionsCost(bin_selection, actionsObjList):
   ''' return actions's costs from binary list '''
   ''' output : INTEGER '''
   cost = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      cost += float(actionsCostsList[i])
+      cost += float(actionsObjList[i].cost)
   return cost
 
-def GetActionsProfit(bin_selection, actionsProfitsList, actionsCostsList):
+def GetActionsProfit(bin_selection, actionsObjList):
   ''' return actions's gain from binary list '''
   ''' output : INTEGER limited TO 2 decimals '''
   combination_profit = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      gain = ((int(actionsCostsList[i]) * int(actionsProfitsList[i])) / 100)
+      gain = ((int(actionsObjList[i].cost) * int(actionsObjList[i].profit)) / 100)
       combination_profit = combination_profit + gain
   return round(combination_profit, 2)
 
-def ReturnCombination(bin_selection, actionsNamesList):
+def ReturnCombination(bin_selection, actionsObjList):
   ''' create list of combination from binary list '''
   ''' output : LIST of actions names '''
   COMBINATIONS_ACTIONS_LIST.clear()
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      COMBINATIONS_ACTIONS_LIST.append(actionsNamesList[i])
+      COMBINATIONS_ACTIONS_LIST.append(actionsObjList[i])
 
 def DecToBin(dec):
   ''' convert decimal in binary with 20 digits '''
