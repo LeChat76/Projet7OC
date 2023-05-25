@@ -1,7 +1,7 @@
 import datetime, sys
 sys.path.append("..")
 from functions import DecToBin, GetActionsCost, ReturnCombination, GetActionsProfit, Clean, isFloat
-from constantes import COMBINATIONS_ACTIONS_LIST, MAX_INVEST
+from constantes import MAX_INVEST
 from models.dataset import GetActionsValues, testArgv
 from models.actions import porteFolio
 from views.reports import bruteforceReport
@@ -17,11 +17,12 @@ def getMaxProfit(actionsObjList):
   start = datetime.datetime.now()
   bestGain = 0
   actions = ""
-
-  for i in range(1, 2 ** len(actionsObjList)):
+  nbActions = len(actionsObjList)
+  
+  for i in range(1, 2 ** nbActions):
     
     # generate "binary selection"
-    binary_index = DecToBin(i)
+    binary_index = DecToBin(i, nbActions)
     
     # test if combination of actions's costs is less than MAX_INVEST
     if GetActionsCost(binary_index, actionsObjList) <= MAX_INVEST:
@@ -31,10 +32,10 @@ def getMaxProfit(actionsObjList):
       if gain > bestGain:
         bestGain = gain
         actionsCost = GetActionsCost(binary_index, actionsObjList)
-        ReturnCombination(binary_index, actionsObjList)
+        combinationActionsList = ReturnCombination(binary_index, actionsObjList)
 
   # generate actions to buy list
-  for action in COMBINATIONS_ACTIONS_LIST:
+  for action in combinationActionsList:
     actions += action.name + ", "
 
   if actionsContainFloat:

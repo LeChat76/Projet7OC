@@ -1,9 +1,11 @@
-from constantes import COMBINATIONS_ACTIONS_LIST, NB_ACTIONS
 import os, platform, psutil
 
 def GetActionsCost(bin_selection, actionsObjList):
-  ''' return actions's costs from binary list '''
-  ''' output : INTEGER '''
+  '''
+  return actions's costs from binary list
+  input : BINARY number, LIST of all actions's objects
+  output : INTEGER
+  '''
   cost = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
@@ -11,8 +13,11 @@ def GetActionsCost(bin_selection, actionsObjList):
   return cost
 
 def GetActionsProfit(bin_selection, actionsObjList):
-  ''' return actions's gain from binary list '''
-  ''' output : INTEGER limited TO 2 decimals '''
+  '''
+  return actions's gain from binary list
+  input : BINARY number, LIST of all actions's objects
+  output : FLOAT limited TO 2 decimals
+  '''
   combination_profit = 0
   for i,bin in enumerate(bin_selection):
     if bin == "1":
@@ -21,31 +26,45 @@ def GetActionsProfit(bin_selection, actionsObjList):
   return round(combination_profit, 2)
 
 def ReturnCombination(bin_selection, actionsObjList):
-  ''' create list of combination from binary list '''
-  ''' output : LIST of actions names '''
-  COMBINATIONS_ACTIONS_LIST.clear()
+  '''
+  create list of combination from binary list
+  input : BINARY number, LIST of all actions's objects
+  output : LIST of actions's objects
+  '''
+  combinationActionsList = []
+  # COMBINATIONS_ACTIONS_LIST.clear()
   for i,bin in enumerate(bin_selection):
     if bin == "1":
-      COMBINATIONS_ACTIONS_LIST.append(actionsObjList[i])
+      combinationActionsList.append(actionsObjList[i])
+  return combinationActionsList
 
-def DecToBin(dec):
-  ''' convert decimal in binary with 20 digits '''
-  ''' output : BINARY '''
+def DecToBin(dec, nbActions):
+  '''
+  convert decimal in binary with 20 digits
+  input : INTEGER
+  output : BINARY
+  '''
   binary = bin(dec)
   binary = binary[2:]
-  binary = str((int(NB_ACTIONS) - len(binary)) * "0") + str(binary)
+  binary = str((int(nbActions) - len(binary)) * "0") + str(binary)
   return binary[::-1]
 
 def Clean():
+    '''
+    clear screen, check OS to launch good command
+    '''
     if platform.system() == "Windows":
         os.system("cls")
     elif platform.system() == "Linux":
         os.system("clear")
 
 def isFloat(actionsList):
-  ''' test if some cost or profit are in float type '''
-  ''' because unable to manage table in that case '''
-  ''' output : BOOLEAN '''
+  '''
+  test if some cost or profit are in float type
+  because unable to manage table in that case
+  input : LIST
+  output : BOOLEAN
+  '''
   for actionCost in actionsList[1]:
     actionCost = str(actionCost)
     if "." in actionCost:
@@ -61,6 +80,9 @@ def isFloat(actionsList):
   return False
 
 def getMemoryUsage():
+    '''
+    extract memory usage
+    '''
     process = psutil.Process()
     memoryInfo = process.memory_info()
     memoryUsageMb = memoryInfo.rss / (1024 * 1024)
