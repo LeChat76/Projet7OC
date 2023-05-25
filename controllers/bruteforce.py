@@ -12,6 +12,8 @@ testArgv(sys.argv, "bruteforce")
 def getMaxProfit(actionsObjList):
   ''' return max profit from dataset '''
 
+  Clean()
+
   start = datetime.datetime.now()
   bestGain = 0
   actions = ""
@@ -41,8 +43,6 @@ def getMaxProfit(actionsObjList):
 
   return actions, actionsCost, bestGain, start
 
-Clean()
-
 actionsValues = GetActionsValues(sys.argv[1])
 actionsNamesList = actionsValues[0]
 actionsCostsList = actionsValues[1]
@@ -58,7 +58,11 @@ for name, cost, profit in zip(actionsValues[0], actionsValues[1], actionsValues[
         continue
     actionsObjList.append(action)
 
-maxProfit = getMaxProfit(actionsObjList)
-
 # reporting
-bruteforceReport(maxProfit[0], maxProfit[1], maxProfit[2], maxProfit[3])
+if __name__ == '__main__':
+    try:
+        Clean()
+        maxProfit = getMaxProfit(actionsObjList)
+        bruteforceReport(maxProfit[0], maxProfit[1], maxProfit[2], maxProfit[3])
+    except KeyboardInterrupt:
+        print("\n\nFin du script par l'utilisateur.\n")
