@@ -47,9 +47,9 @@ def optimizedReport(result):
     print("Utilisation de la mémoire :", str(format(memoryUsed, '.2f') + "Mo"))
 
 def testArgv(argv, scriptName):
-  ''' test if arguments are correct '''
+  ''' test if arguments are correct '''  
   if len(argv) == 1 or len(argv) >2 :
-    print("Mauvaise syntaxe.\nExemple python .\\" + scriptName + ".py datas\dataset.csv ")
+    print("Mauvaise syntaxe.\nExemple python " + scriptName + ".py datas\dataset.csv ")
     sys.exit()
   else:
     try:
@@ -103,12 +103,12 @@ def getMaxProfit(maxInvestInit, actionsObjList):
 
     return actionsNames, finalProfit, maxInvestInit - maxInvest, datetime.datetime.now() - start
 
+# check if file argument exists and if can be accessed
+testArgv(sys.argv, "optimized")
+
 # creation of actions's object list from dataset
 data_path = os.path.join(os.path.dirname(__file__), sys.argv[1])
 actionsValues = GetActionsValues(data_path)
-
-# check if file argument exists and if can be accessed
-testArgv(sys.argv, "optimized")
 
 actionsObjList = []
 maxInvestInit = 500
