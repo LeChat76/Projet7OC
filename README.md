@@ -21,7 +21,7 @@ Install all needed libraries by typing : "pip install -r requirements.txt"
 
 ## Step 1 : bruteforce algorithm
 ### Knapsack01 with bruteforce algorithm :
- * from controllers's folder : python.exe .\bruteforce.py ..\datas\dataset.csv
+ * python.exe .\bruteforce.py ..\datas\dataset.csv
 
 ## Step 2 : optimization
 ### Knapsack01 with gluttonous algorithm : 
