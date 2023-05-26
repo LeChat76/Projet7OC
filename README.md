@@ -25,16 +25,16 @@ Install all needed libraries by typing : "pip install -r requirements.txt"
 
 ## Step 2 : optimization
 ### Knapsack01 with gluttonous algorithm : 
- * python.exe optimized.py datas\dataset.csv
+ * python optimized.py datas\dataset.csv
 ### Knapsack01 with dynamic algorithm : 
- * python.exe optimized2.py datas\dataset.csv
+ * python optimized2.py datas\dataset.csv
 
 ## Step 3 : backtesting
 ### Bruteforce is not used because computing time is too long
 ### Knapsack01 with gluttonous algorithm : 
-    * python.exe optimized.py datas\dataset1_Python+P7.csv
-    * python.exe optimized.py datas\dataset2_Python+P7.csv
+    * python optimized.py datas\dataset1_Python+P7.csv
+    * python optimized.py datas\dataset2_Python+P7.csv
 ### Knapsack01 with dynamic algorithm : 
-    * python.exe optimized2.py datas\dataset1_Python+P7.csv
-    * python.exe optimized2.py datas\dataset2_Python+P7.csv
+    * python optimized2.py datas\dataset1_Python+P7.csv
+    * python optimized2.py datas\dataset2_Python+P7.csv
 
