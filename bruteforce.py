@@ -39,7 +39,7 @@ def getMemoryUsage():
 def testArgv(argv, scriptName):
   ''' test if arguments are correct '''  
   if len(argv) == 1 or len(argv) >2 :
-    print("Mauvaise syntaxe.\nExemple (depuis le dossier 'controllers') : python .\\" + scriptName + ".py ..\datas\dataset.csv ")
+    print("Mauvaise syntaxe.\nExemple python .\\" + scriptName + ".py datas\dataset.csv ")
     sys.exit()
   else:
     try:
