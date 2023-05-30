@@ -4,7 +4,6 @@
 
 # Projet7OC
 Algorithms for calculating best bank returns.
-Using MVC pattern.
 This project is detailed in the file 'AlgoInvest&Trade.pdf'.
 
 ## Installation
